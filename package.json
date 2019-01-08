@@ -1,0 +1,35 @@
+{
+  "name": "blogplus",
+  "version": "1.0.0",
+  "description": "ok",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QiPg/blogPlus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QiPg/blogPlus/issues"
+  },
+  "homepage": "https://github.com/QiPg/blogPlus#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-middleware": "^3.5.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.16.4",
+    "swig": "^1.4.2"
+  }
+}
