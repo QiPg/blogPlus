@@ -20,7 +20,7 @@ const webpackConfig=require('./webpack.config.js');
 const compiler=webpack(webpackConfig);
 
 app.use(webpackDev(compiler,{
-	noTnfo:true,//编译打印少量代码
+	noInfo:true,//控制台不显示信息（只有警告和错误）
 	// stats:{
 	// 	colors:true//控制台打印颜色
 	// },
