@@ -3,12 +3,12 @@ const path=require('path');
 const srcPath=path.resolve(__dirname,'src');
 module.exports={
 	entry:{
-		'common/main':srcPath+'/common/main.js'
+		'common/main':[srcPath+'/common/main.js','webpack-hot-middleware/client?reload=true']//4
 	},
 	output:{
 		path:__dirname+'/public',
 		filename:'[name].js',
-		publicPath:'http://localhost:8080/public'
+		publicPath:'http://localhost:3000/public'
 	},
 	devtool:'eval-source-map',//2
 	module:{

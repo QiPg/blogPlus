@@ -20,18 +20,32 @@ const webpackConfig=require('./webpack.config.js');
 const compiler=webpack(webpackConfig);
 
 app.use(webpackDev(compiler,{
-	noInfo:true,//控制台不显示信息（只有警告和错误）
-	// stats:{
-	// 	colors:true//控制台打印颜色
-	// },
-	 publicPath:webpackConfig.output.publicPath  //前缀访问地址
+	noInfo:true,
+	publicPath:webpackConfig.output.publicPath
 }));
 app.use(require('webpack-hot-middleware')(compiler));
 
+app.use('./',require('./server/routers/api'))
 
 app.get('/',(req,res,next)=>{
+     console.log('来了');
      res.render('index');
 });
-app.listen(8080,()=>{
-	console.log('web服务启动成功');
-})
+const browserSync=require('browser-sync').create();
+const reload =require('reload');
+const http=require('http');
+const server= http.createServer(app);
+reload(app);
+server.listen(3000,()=>{
+        browserSync.init({
+            ui:false,
+            open:false,
+            online:false,
+            notify:false,
+            proxy: 'http://localhost:3000',
+            files: './server/views/**',
+            port: 3000
+        }, () => {
+          console.log('开发模式，代理服务器启动成功')
+        });
+  });
